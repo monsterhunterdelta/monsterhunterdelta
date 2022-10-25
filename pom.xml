@@ -124,7 +124,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                edu.monster.hunter.delta.monsterhunterdelta/edu.monster.hunter.delta.monsterhunterdelta.HelloApplication
+                                edu.monster.hunter.delta.monsterhunterdelta/edu.monster.hunter.delta.monsterhunterdelta.MonsterhunterdeltaApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

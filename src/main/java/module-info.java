@@ -5,6 +5,7 @@ module edu.monster.hunter.delta.monsterhunterdelta {
     requires javafx.web;
     requires javafx.graphics;
     requires javafx.media;
+    requires java.desktop;
 
 
     opens edu.monster.hunter.delta.monsterhunterdelta.view to javafx;

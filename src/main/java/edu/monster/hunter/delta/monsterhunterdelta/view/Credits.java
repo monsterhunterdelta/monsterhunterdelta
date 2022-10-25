@@ -34,7 +34,7 @@ public class Credits extends Application {
 		Label basti = new Label("Sebastian Nadler");
 		grid.add(basti, 0, 2);
 
-		Label oliver = new Label("Oliver Mohn");
+		Label oliver = new Label("Quirin Johannes Koch");
 		grid.add(oliver, 0, 3);
 
 		Label marina = new Label("Maryna Korovay");
@@ -64,11 +64,11 @@ public class Credits extends Application {
 
 		// print content of a file from a path in console with filreader
 		try {
-			FileReader fr = new FileReader("/edu/monster/hunter/delta/monsterhunterdelta/resources/controls.css");
+			FileReader fr = new FileReader("/edu/monster/hunter/delta/monsterhunterdelta/controls.css");
 			int i;
 			while ((i = fr.read()) != -1) {
 				System.out.print((char) i);
-				scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/resources/controls.css").toExternalForm());
+				scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
 
 			}
 		} catch (Exception e) {
@@ -77,9 +77,9 @@ public class Credits extends Application {
 
 
 
-		scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/resources/controls.css").toExternalForm());
+		scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
 		scene.getStylesheets().add(
-				Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/resources/Credits.css").toExternalForm());
+				Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/Credits.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 

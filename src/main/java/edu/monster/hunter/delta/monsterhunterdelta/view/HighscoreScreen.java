@@ -81,9 +81,9 @@ public class HighscoreScreen extends Application {
 		StackPane root = new StackPane();
 		root.getChildren().add(grid);
 		Scene scene = new Scene(root, 1024, 740);
-		scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/resources/controls.css").toExternalForm());
+		scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
 		scene.getStylesheets().add(
-				Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/resources/HighscoreScreen.css").toExternalForm());
+				Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/HighscoreScreen.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 

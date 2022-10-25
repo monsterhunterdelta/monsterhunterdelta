@@ -117,9 +117,9 @@ public class TitleScreen extends Application {
 		});
 
 		Scene scene = new Scene(grid, 1024, 740);
-		scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/resources/controls.css").toExternalForm());
+		scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
 		scene.getStylesheets().add(
-				TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/resources/TitleScreen.css")
+				TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/TitleScreen.css")
 						.toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();

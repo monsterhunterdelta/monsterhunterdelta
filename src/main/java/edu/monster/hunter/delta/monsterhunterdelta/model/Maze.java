@@ -62,7 +62,7 @@ private void createMaze(String levelName) {
 		try{
 			// print current file path
 			System.out.println(System.getProperty("user.dir"));
-			Object obj = parser.parse(new FileReader(System.getProperty("user.dir") + "/src/main/resources/edu/monster/hunter/delta/monsterhunterdelta/resources/"+levelName+".json"));
+			Object obj = parser.parse(new FileReader(System.getProperty("user.dir") + "/src/main/resources/edu/monster/hunter/delta/monsterhunterdelta/"+levelName+".json"));
 			JSONObject jsonObject = (JSONObject) obj;
 
 			double[][] blockValues = new double[jsonObject.size()][4];
