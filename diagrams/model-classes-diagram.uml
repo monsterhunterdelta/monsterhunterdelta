@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-38.51930616622435" y="122.58061230562308">edu.monster.hunter.delta.monsterhunterdelta.model.CollisionDetector</node>
+    <node x="676.0574454318355" y="209.51968043559074">edu.monster.hunter.delta.monsterhunterdelta.model.Maze</node>
+    <node x="292.8133892830733" y="-13.968656598526735">edu.monster.hunter.delta.monsterhunterdelta.model.Direction</node>
+    <node x="463.3129874327342" y="364.26934840596857">edu.monster.hunter.delta.monsterhunterdelta.model.ShootCallback</node>
+    <node x="663.4103933828577" y="569.618003575794">edu.monster.hunter.delta.monsterhunterdelta.model.Enemy</node>
+    <node x="420.96191449063133" y="765.6291946170575">edu.monster.hunter.delta.monsterhunterdelta.model.Player</node>
+    <node x="153.49210899533435" y="800.692556030735">edu.monster.hunter.delta.monsterhunterdelta.model.Keyboard</node>
+    <node x="-41.558515841671294" y="239.16823973851035">edu.monster.hunter.delta.monsterhunterdelta.model.Bullet</node>
+    <node x="370.0617910146343" y="585.072002098538">edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure</node>
+    <node x="-87.02422732918075" y="436.2431631813057">edu.monster.hunter.delta.monsterhunterdelta.model.HighscoreEntry</node>
+    <node x="198.20664150713486" y="74.73001927479055">edu.monster.hunter.delta.monsterhunterdelta.model.Figure</node>
+    <node x="463.49212725482323" y="121.0778750916419">edu.monster.hunter.delta.monsterhunterdelta.model.TypeOfFigure</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" target="edu.monster.hunter.delta.monsterhunterdelta.model.TypeOfFigure" relationship="TO_ONE">
+      <point x="102.5" y="-140.65214418314866" />
+      <point x="-75.5" y="0.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Keyboard" target="edu.monster.hunter.delta.monsterhunterdelta.model.Player" relationship="TO_ONE">
+      <point x="60.0" y="0.0" />
+      <point x="-83.5" y="-76.93663858632249" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Enemy" target="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" relationship="GENERALIZATION">
+      <point x="-3.933828577373788E-4" y="37.499996424206074" />
+      <point x="785.41" y="736.0" />
+      <point x="486.562" y="736.0" />
+      <point x="2.089853657025742E-4" y="59.99999790146205" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Bullet" target="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" relationship="GENERALIZATION">
+      <point x="87.9995158416713" y="-2.3973851034497784E-4" />
+      <point x="169.0" y="299.168" />
+      <point x="169.0" y="299.73" />
+      <point x="-102.49964150713487" y="-1.9274790531653707E-5" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" target="edu.monster.hunter.delta.monsterhunterdelta.model.Maze" relationship="TO_ONE">
+      <point x="102.5" y="-52.21033883919981" />
+      <point x="-93.0" y="0.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" target="edu.monster.hunter.delta.monsterhunterdelta.model.Bullet" relationship="CREATE">
+      <point x="-116.5" y="29.999997901462052" />
+      <point x="-119.52422732918075" y="675.072" />
+      <point x="-119.52422732918075" y="284.16823973851035" />
+      <point x="-88.0" y="-15.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" target="edu.monster.hunter.delta.monsterhunterdelta.model.CollisionDetector" relationship="TO_ONE">
+      <point x="-102.5" y="-163.14940696916747" />
+      <point x="88.0" y="0.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" target="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" relationship="GENERALIZATION">
+      <point x="-116.4997910146343" y="-2.0985379478588584E-6" />
+      <point x="169.0" y="645.072" />
+      <point x="169.0" y="299.73" />
+      <point x="-102.49964150713487" y="-1.9274790531653707E-5" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" target="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" relationship="TO_MANY">
+      <point x="2.089853657025742E-4" y="-60.00000209853795" />
+      <point x="486.562" y="555.0" />
+      <point x="300.707" y="555.0" />
+      <point x="3.5849286513212064E-4" y="224.99998072520947" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Bullet" target="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" relationship="TO_ONE">
+      <point x="-88.0" y="0.0" />
+      <point x="-104.52422732918075" y="299.16823973851035" />
+      <point x="-104.52422732918075" y="660.072" />
+      <point x="-116.5" y="14.999997901462052" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" target="edu.monster.hunter.delta.monsterhunterdelta.model.CollisionDetector" relationship="CREATE">
+      <point x="-102.5" y="-78.0617795362802" />
+      <point x="49.48069383377565" y="221.66823973851035" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Player" target="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" relationship="GENERALIZATION">
+      <point x="8.550936865958647E-5" y="-126.00019461705745" />
+      <point x="504.462" y="736.0" />
+      <point x="486.562" y="736.0" />
+      <point x="2.089853657025742E-4" y="59.99999790146205" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" target="edu.monster.hunter.delta.monsterhunterdelta.model.ShootCallback" relationship="TO_ONE">
+      <point x="55.25119641809988" y="-60.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Bullet" target="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" relationship="TO_MANY">
+      <point x="87.9995158416713" y="-15.000239738510345" />
+      <point x="169.0" y="284.168" />
+      <point x="169.0" y="-31.468999999999994" />
+      <point x="426.313" y="-31.468999999999994" />
+      <point x="426.313" y="555.0" />
+      <point x="300.707" y="555.0" />
+      <point x="3.5849286513212064E-4" y="224.99998072520947" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" target="edu.monster.hunter.delta.monsterhunterdelta.model.Direction" relationship="TO_ONE">
+      <point x="50.10674777593846" y="-225.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.7308411214953271" showDependencies="true" x="404.0" y="502.99999999999994" />
+  <SelectedNodes>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Keyboard</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Bullet</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Player</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.TypeOfFigure</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.CollisionDetector</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Direction</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Figure</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Enemy</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.HighscoreEntry</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Maze</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.ShootCallback</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

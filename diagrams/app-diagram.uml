@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="728.2101240829568" y="929.4610075732019">edu.monster.hunter.delta.monsterhunterdelta.model.HighscoreEntry</node>
+    <node x="1315.7504550947301" y="632.7794906341217">edu.monster.hunter.delta.monsterhunterdelta.model.Direction</node>
+    <node x="47.55824196964559" y="453.6269268926434">edu.monster.hunter.delta.monsterhunterdelta.model.Maze</node>
+    <node x="631.3012763391847" y="1791.9813100215633">edu.monster.hunter.delta.monsterhunterdelta.model.Enemy</node>
+    <node x="-138.28735973465214" y="1647.729234392834">edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure</node>
+    <node x="419.1951821328272" y="870.4902665382367">edu.monster.hunter.delta.monsterhunterdelta.view.HighscoreScreen</node>
+    <node x="638.5161219837679" y="732.8151032253055">edu.monster.hunter.delta.monsterhunterdelta.view.GameOver</node>
+    <node x="1587.8823528755966" y="699.0482553598267">edu.monster.hunter.delta.monsterhunterdelta.persistence.Highscore</node>
+    <node x="720.3447866642912" y="-13.816735670958906">edu.monster.hunter.delta.monsterhunterdelta.view.PlayFieldScreen</node>
+    <node x="136.61706963366424" y="869.6484892032099">edu.monster.hunter.delta.monsterhunterdelta.view.Credits</node>
+    <node x="387.17952649789873" y="740.6455867277256">edu.monster.hunter.delta.monsterhunterdelta.util.Callback</node>
+    <node x="353.46105271504183" y="315.891824547038">edu.monster.hunter.delta.monsterhunterdelta.model.Keyboard</node>
+    <node x="874.000492946953" y="704.1599632196663">edu.monster.hunter.delta.monsterhunterdelta.model.CollisionDetector</node>
+    <node x="1004.8126757547211" y="548.8373974013186">edu.monster.hunter.delta.monsterhunterdelta.model.ShootCallback</node>
+    <node x="1561.9906152440649" y="848.5363029272175">edu.monster.hunter.delta.monsterhunterdelta.persistence.HighscoreImpl</node>
+    <node x="658.7798308739372" y="564.1178398086514">edu.monster.hunter.delta.monsterhunterdelta.view.Options</node>
+    <node x="1282.2058711445507" y="451.5319585597034">edu.monster.hunter.delta.monsterhunterdelta.MonsterhunterdeltaApplication</node>
+    <node x="685.9691579451909" y="1225.5716659129598">edu.monster.hunter.delta.monsterhunterdelta.model.Bullet</node>
+    <node x="300.8214099845254" y="1071.0711972886677">edu.monster.hunter.delta.monsterhunterdelta.model.Figure</node>
+    <node x="1189.4634974186843" y="1266.9146722271553">edu.monster.hunter.delta.monsterhunterdelta.model.Player</node>
+    <node x="1139.8993982486077" y="938.3161375366358">edu.monster.hunter.delta.monsterhunterdelta.model.TypeOfFigure</node>
+    <node x="393.83573805741446" y="556.799829363733">edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" target="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" relationship="GENERALIZATION">
+      <point x="3.5973465214311773E-4" y="-128.50023439283405" />
+      <point x="51.213" y="1631.0" />
+      <point x="463.321" y="1631.0" />
+      <point x="-4.0998452539042773E-4" y="271.4998027113322" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Player" target="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" relationship="GENERALIZATION">
+      <point x="-4.974186842900963E-4" y="194.50032777284468" />
+      <point x="1336.463" y="1724.0" />
+      <point x="779.801" y="1724.0" />
+      <point x="779.801" y="1774.481" />
+      <point x="189.50035973465214" y="-1.7482343928340924" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Enemy" target="edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure" relationship="GENERALIZATION">
+      <point x="-2.7633918466563046E-4" y="-94.50031002156334" />
+      <point x="794.801" y="1724.0" />
+      <point x="779.801" y="1724.0" />
+      <point x="779.801" y="1774.481" />
+      <point x="189.50035973465214" y="-1.7482343928340924" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.persistence.HighscoreImpl" target="edu.monster.hunter.delta.monsterhunterdelta.persistence.Highscore" relationship="REALIZATION">
+      <point x="25.89173763153167" y="-49.5" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.model.Bullet" target="edu.monster.hunter.delta.monsterhunterdelta.model.Figure" relationship="GENERALIZATION">
+      <point x="-1.5794519083556224E-4" y="106.50033408704007" />
+      <point x="882.469" y="1631.0" />
+      <point x="463.321" y="1631.0" />
+      <point x="-4.0998452539042773E-4" y="271.4998027113322" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.4327543424317618" showDependencies="false" x="1859.0338302752293" y="1446.9128440366972" />
+  <SelectedNodes>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.util.Callback</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Keyboard</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Bullet</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Player</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.view.Options</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.TypeOfFigure</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Figure</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.HighscoreEntry</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Enemy</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.persistence.Highscore</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.persistence.HighscoreImpl</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.view.GameOver</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Maze</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.MonsterhunterdeltaApplication</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.view.HighscoreScreen</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.view.Credits</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.view.PlayFieldScreen</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.Direction</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.CollisionDetector</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.ShootCallback</node>
+    <node>edu.monster.hunter.delta.monsterhunterdelta.model.ShootingFigure</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

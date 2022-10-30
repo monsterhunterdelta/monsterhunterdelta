@@ -1,6 +1,9 @@
-package edu.monster.hunter.delta.monsterhunterdelta.model;
+package edu.monster.hunter.delta.monsterhunterdelta.controller;
 
 
+import edu.monster.hunter.delta.monsterhunterdelta.model.Bullet;
+import edu.monster.hunter.delta.monsterhunterdelta.model.Direction;
+import edu.monster.hunter.delta.monsterhunterdelta.model.Player;
 import edu.monster.hunter.delta.monsterhunterdelta.view.PlayFieldScreen;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;

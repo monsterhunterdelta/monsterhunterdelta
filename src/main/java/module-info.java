@@ -12,9 +12,10 @@ module edu.monster.hunter.delta.monsterhunterdelta {
     opens edu.monster.hunter.delta.monsterhunterdelta.model to javafx;
 
 
-
     opens edu.monster.hunter.delta.monsterhunterdelta to javafx.fxml;
     exports edu.monster.hunter.delta.monsterhunterdelta.view;
     exports edu.monster.hunter.delta.monsterhunterdelta.model;
     exports edu.monster.hunter.delta.monsterhunterdelta;
+    exports edu.monster.hunter.delta.monsterhunterdelta.controller;
+    opens edu.monster.hunter.delta.monsterhunterdelta.controller to javafx;
 }

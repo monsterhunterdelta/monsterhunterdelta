@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="694.0" y="62.0">edu.monster.hunter.delta.monsterhunterdelta.view.HighscoreScreen</node>
+    <node x="-273.5" y="-17.0">edu.monster.hunter.delta.monsterhunterdelta.view.PlayFieldScreen</node>
+    <node x="105.5" y="82.0">edu.monster.hunter.delta.monsterhunterdelta.view.GameOver</node>
+    <node x="385.5" y="2.0">edu.monster.hunter.delta.monsterhunterdelta.view.Credits</node>
+    <node x="307.0" y="291.0">javafx.application.Application</node>
+    <node x="699.0" y="-149.0">edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen</node>
+    <node x="945.5" y="-138.0">edu.monster.hunter.delta.monsterhunterdelta.view.Options</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.Options" target="javafx.application.Application" relationship="GENERALIZATION">
+      <point x="0.0" y="38.0" />
+      <point x="1023.0" y="440.0" />
+      <point x="156.0" y="-0.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.GameOver" target="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" relationship="CREATE">
+      <point x="0.0" y="-38.0" />
+      <point x="183.0" y="-80.0" />
+      <point x="-84.0" y="20.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" target="edu.monster.hunter.delta.monsterhunterdelta.view.HighscoreScreen" relationship="CREATE">
+      <point x="-5.0" y="-0.0" />
+      <point x="-5.0" y="-38.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.HighscoreScreen" target="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" relationship="CREATE">
+      <point x="5.0" y="-38.0" />
+      <point x="5.0" y="49.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" target="javafx.application.Application" relationship="GENERALIZATION">
+      <point x="84.0" y="20.0" />
+      <point x="923.0" y="-80.0" />
+      <point x="923.0" y="420.0" />
+      <point x="156.0" y="-20.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.Credits" target="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" relationship="CREATE">
+      <point x="77.5" y="5.0" />
+      <point x="768.0" y="45.0" />
+      <point x="-15.0" y="49.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" target="edu.monster.hunter.delta.monsterhunterdelta.view.Credits" relationship="CREATE">
+      <point x="-25.0" y="-0.0" />
+      <point x="758.0" y="35.0" />
+      <point x="77.5" y="-5.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" target="edu.monster.hunter.delta.monsterhunterdelta.view.PlayFieldScreen" relationship="CREATE">
+      <point x="-84.0" y="-0.0" />
+      <point x="-117.0" y="-100.0" />
+      <point x="0.0" y="-137.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.Options" target="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" relationship="CREATE">
+      <point x="-77.5" y="-5.0" />
+      <point x="84.0" y="-5.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.TitleScreen" target="edu.monster.hunter.delta.monsterhunterdelta.view.Options" relationship="CREATE">
+      <point x="84.0" y="5.0" />
+      <point x="0.0" y="5.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.HighscoreScreen" target="javafx.application.Application" relationship="GENERALIZATION">
+      <point x="-89.0" y="-0.0" />
+      <point x="483.0" y="100.0" />
+      <point x="20.0" y="-149.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.Credits" target="javafx.application.Application" relationship="GENERALIZATION">
+      <point x="0.0" y="38.0" />
+      <point x="0.0" y="-149.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.PlayFieldScreen" target="javafx.application.Application" relationship="GENERALIZATION">
+      <point x="0.0" y="137.0" />
+      <point x="-117.0" y="440.0" />
+      <point x="-156.0" y="-0.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.GameOver" target="javafx.application.Application" relationship="GENERALIZATION">
+      <point x="0.0" y="38.0" />
+      <point x="183.0" y="420.0" />
+      <point x="-156.0" y="-20.0" />
+    </edge>
+    <edge source="edu.monster.hunter.delta.monsterhunterdelta.view.PlayFieldScreen" target="edu.monster.hunter.delta.monsterhunterdelta.view.GameOver" relationship="CREATE">
+      <point x="156.5" y="-0.0" />
+      <point x="-77.5" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal Groups" zoom="0.6560227675540645" showDependencies="true" x="847.4520413528012" y="420.61107992577115" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -15,9 +15,6 @@ public class Player extends ShootingFigure {
         super(maze, TypeOfFigure.PLAYER, x, y);
         Image image = new Image(this.getClass().getResourceAsStream("/edu/monster/hunter/delta/monsterhunterdelta/sprites.png"));
 
-        //Image image = new Image(new File("/edu/monster/hunter/delta/monsterhunterdelta/sprite.png").toURI().toString());
-
-
         getImageView().setImage(image);
         getImageView().setX(x);
         getImageView().setY(y);

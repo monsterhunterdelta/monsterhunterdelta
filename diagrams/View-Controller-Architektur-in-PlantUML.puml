@@ -1,0 +1,74 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Application {
+  + Application():
+  - hostServices: HostServices
+  - userAgentStylesheet: String
+  + start(Stage): void
+  + launch(Class<Application>, String[]?): void
+  + launch(String[]?): void
+  + init(): void
+  + notifyPreloader(PreloaderNotification): void
+  + stop(): void
+   userAgentStylesheet: String
+   parameters: Parameters
+   hostServices: HostServices
+}
+
+package "View Layer" #DDDDDD {
+class Credits {
+  + Credits():
+  + start(Stage): void
+}
+class GameOver {
+  + GameOver():
+  + start(Stage): void
+}
+class HighscoreScreen {
+  + HighscoreScreen():
+  + start(Stage): void
+}
+class Options {
+  + Options():
+  + start(Stage): void
+}
+class PlayFieldScreen {
+  + PlayFieldScreen():
+  - enterHighscore(): void
+  + start(Stage): void
+  - introSequence(): void
+  + pauseGame(): void
+  + muteMusic(): void
+  - moveAllEnemies(): void
+  - moveAllBullets(): void
+  - createEnemy(TypeOfFigure, int, int): Enemy
+  - checkThatPlayerIsStillAlive(): boolean
+  - gameOver(): void
+}
+class TitleScreen {
+  + TitleScreen():
+  + start(Stage): void
+  + main(String[]): void
+}
+}
+
+Credits          -[#000082,plain]-^  Application
+Credits          -[#595959,dashed]->  TitleScreen     : "«create»"
+GameOver         -[#000082,plain]-^  Application
+GameOver         -[#595959,dashed]->  TitleScreen     : "«create»"
+HighscoreScreen  -[#000082,plain]-^  Application
+HighscoreScreen  -[#595959,dashed]->  TitleScreen     : "«create»"
+Options          -[#000082,plain]-^  Application
+Options          -[#595959,dashed]->  TitleScreen     : "«create»"
+PlayFieldScreen  -[#000082,plain]-^  Application
+PlayFieldScreen  -[#595959,dashed]->  GameOver        : "«create»"
+TitleScreen      -[#000082,plain]-^  Application
+TitleScreen      -[#595959,dashed]->  Credits         : "«create»"
+TitleScreen      -[#595959,dashed]->  HighscoreScreen : "«create»"
+TitleScreen      -[#595959,dashed]->  Options         : "«create»"
+TitleScreen      -[#595959,dashed]->  PlayFieldScreen : "«create»"
+@enduml

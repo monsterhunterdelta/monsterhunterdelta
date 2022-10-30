@@ -12,51 +12,51 @@ import javafx.stage.Stage;
 
 public class Options extends Application {
 
-	@Override
-	public void start(final Stage primaryStage) {
-		primaryStage.setTitle("Monster Hunter Arcade - Optionen");
-		primaryStage.setResizable(false);
+    @Override
+    public void start(final Stage primaryStage) {
+        primaryStage.setTitle("Monster Hunter Arcade - Optionen");
+        primaryStage.setResizable(false);
 
-		GridPane root = new GridPane();
-		root.setId("optionsGrid");
-		root.setAlignment(Pos.CENTER);
-		root.setHgap(30);
-		root.setVgap(30);
-		
-		Label optionHeader = new Label("OPTIONEN");
-		root.add(optionHeader,0,0);
-		
-		Label controls = new Label("Steuerung");
-		root.add(controls,0,1);
-		
-		Label configuration = new Label("Hoch \t W \n"
-				+ "Runter \t S \n"
-				+ "Links \t A \n"
-				+ "Rechts \t D \n"
-				+ "Schießen  Leertaste \n"
-				+ "Musik an/aus M \n"
-				+ "Pause \t P");
-		root.add(configuration,0,3);
-		
-		Button okBtn = new Button();
-		okBtn.setText("Zurück");
-		okBtn.setOnAction(new EventHandler<ActionEvent>() {
+        GridPane grid = new GridPane();
+        grid.setId("optionsGrid");
+        grid.setAlignment(Pos.CENTER);
+        grid.setHgap(30);
+        grid.setVgap(30);
 
-			@Override
-			public void handle(ActionEvent arg0) {
-				TitleScreen title = new TitleScreen();
-				title.start(primaryStage);
-			}
+        Label optionHeader = new Label("OPTIONEN");
+        grid.add(optionHeader, 0, 0);
 
-		});
+        Label controls = new Label("Steuerung");
+        grid.add(controls, 0, 1);
 
-		root.add(okBtn,0,4);
-		Scene scene = new Scene(root, 1024, 740);
-		scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
-		scene.getStylesheets().add(
-				Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/Options.css").toExternalForm());
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
+        Label configuration = new Label("Hoch \t W \n"
+                + "Runter \t S \n"
+                + "Links \t A \n"
+                + "Rechts \t D \n"
+                + "Schießen  Leertaste \n"
+                + "Musik an/aus M \n"
+                + "Pause \t P");
+        grid.add(configuration, 0, 3);
+
+        Button okBtn = new Button();
+        okBtn.setText("Zurück");
+        okBtn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent arg0) {
+                TitleScreen title = new TitleScreen();
+                title.start(primaryStage);
+            }
+
+        });
+
+        grid.add(okBtn, 0, 4);
+        Scene scene = new Scene(grid, 1024, 740);
+        scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
+        scene.getStylesheets().add(
+                Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/Options.css").toExternalForm());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
 }
