@@ -1,5 +1,6 @@
 package edu.monster.hunter.delta.monsterhunterdelta.view;
 
+import edu.monster.hunter.delta.monsterhunterdelta.controller.HighscoreEntry;
 import edu.monster.hunter.delta.monsterhunterdelta.controller.Keyboard;
 import edu.monster.hunter.delta.monsterhunterdelta.model.*;
 import javafx.animation.KeyFrame;
@@ -244,9 +245,8 @@ public class PlayFieldScreen extends Application {
             @Override
             public void handle(ActionEvent arg0) {
                 //highscore eintragen
-                // Todo das müsste eigentlich ein Controller sein
                 entry = new HighscoreEntry(name.getText(), finalScore);
-
+                entry.save();
                 //gameover
                 gameOver();
             }
@@ -365,7 +365,7 @@ public class PlayFieldScreen extends Application {
     }
 
     public void muteMusic() {
-		mediaPlayer.setMute(!mediaPlayer.isMute());
+        mediaPlayer.setMute(!mediaPlayer.isMute());
     }
 
     private class ShootCallbackImpl implements ShootCallback {
