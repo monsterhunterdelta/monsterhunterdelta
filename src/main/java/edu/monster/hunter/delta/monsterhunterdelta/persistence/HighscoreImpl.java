@@ -1,6 +1,8 @@
 package edu.monster.hunter.delta.monsterhunterdelta.persistence;
 
 import java.io.*;
+import java.util.ArrayList;
+
 
 /**
  * @author basti
@@ -17,6 +19,61 @@ public class HighscoreImpl implements Highscore {
         this.score = score;
     }
 
+    public static save(ArrayList<Object> scores) {
+        FileInputStream fis = new FileInputStream("highscore.txt");
+
+        ArrayList<Object> objects = new ArrayList<Object>();
+
+        try {
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            try {
+                Object loadedObj = null;
+                while ((loadedObj = ois.readObject()) != null) {
+                    objects.add(loadedObj);
+                }
+
+                return objects;
+            } finally {
+                ois.close();
+            }
+
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ArrayList<Object> load(String filename) throws FileNotFoundException {
+        FileInputStream fis = new FileInputStream("highscore.txt");
+
+        ArrayList<Object> objects = new ArrayList<Object>();
+
+        try {
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            try {
+                Object loadedObj = null;
+                while ((loadedObj = ois.readObject()) != null) {
+                    objects.add(loadedObj);
+                }
+
+                return objects;
+            } finally {
+                ois.close();
+            }
+
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public void saveHighscore(String name, int score) {
@@ -25,7 +82,6 @@ public class HighscoreImpl implements Highscore {
 
 
     }
-
 
     @Override
     public void saveHighscoreToFile() {
@@ -58,7 +114,6 @@ public class HighscoreImpl implements Highscore {
         System.out.println(highscoreForLoading);
         return String.valueOf(highscoreForLoading);
     }
-
 
     @Override
     public String loadHighscore() {

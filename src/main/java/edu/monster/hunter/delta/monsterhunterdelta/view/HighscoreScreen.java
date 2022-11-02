@@ -38,6 +38,7 @@ public class HighscoreScreen extends Application {
         String dummyname2 = "Klaus";
         int dummypoints2 = 8300;
 
+
         final ObservableList<HighscoreEntry> dummyData = FXCollections.observableArrayList(
                 new HighscoreEntry(dummyname, dummypoints),
                 new HighscoreEntry(dummyname2, dummypoints2)

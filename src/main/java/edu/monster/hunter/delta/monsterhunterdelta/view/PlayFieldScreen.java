@@ -68,7 +68,7 @@ public class PlayFieldScreen extends Application {
     @Override
     public void start(final Stage primaryStage) {
         this.primaryStage = primaryStage;
-        primaryStage.setTitle("Monster Hunter Arcade");
+        primaryStage.setTitle("Monster Hunter Delta");
         primaryStage.setResizable(false);
 
 
