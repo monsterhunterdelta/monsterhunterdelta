@@ -11,7 +11,7 @@ class MonsterhunterdeltaApplication {
 }
 
 
-package "monsterhunterdelta.persistance" #DDDDDD {
+package "monsterhunterdelta.persistence" #DDDDDD {
 interface Highscore << interface >> {
   + saveHighscore(String, int): void
   + loadHighscore(): String
@@ -164,7 +164,7 @@ enum TypeOfFigure << enumeration >> {
 }
 
 }
-package "View Layer" #DDDDDD {
+package "monsterhunterdelta.view" #DDDDDD {
 
 class TitleScreen {
   + TitleScreen():
