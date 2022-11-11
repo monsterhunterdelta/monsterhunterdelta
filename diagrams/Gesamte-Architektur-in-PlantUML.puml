@@ -1,6 +1,6 @@
 @startuml
 title "class diagram for monsterhunterdelta"
-
+'Anmerkung: ECS -> Noch ergänzen, Anforderungne ergänzen
 
 !theme plain
 top to bottom direction

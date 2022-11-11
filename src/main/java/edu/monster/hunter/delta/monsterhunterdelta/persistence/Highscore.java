@@ -1,12 +1,10 @@
 package edu.monster.hunter.delta.monsterhunterdelta.persistence;
 
-import java.io.Serializable;
-
 /**
  * @author basti This is the interface for the Highscore. It gets and sets the
  * score of a player.
  */
-public interface Highscore extends Serializable {
+public interface Highscore {
     /**
      * This method should save someone's highscore.
      *

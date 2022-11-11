@@ -7,6 +7,8 @@ import java.util.ArrayList;
 /**
  * @author basti
  */
+
+// TODO implements Serializable
 public class HighscoreImpl implements Highscore {
 
     private final String name;
@@ -19,7 +21,7 @@ public class HighscoreImpl implements Highscore {
         this.score = score;
     }
 
-    public static save(ArrayList<Object> scores) {
+    public static ArrayList<Object> save(ArrayList<Object> scores) throws FileNotFoundException {
         FileInputStream fis = new FileInputStream("highscore.txt");
 
         ArrayList<Object> objects = new ArrayList<Object>();
