@@ -1,14 +1,12 @@
 @startuml
+title "class diagram for monsterhunterdelta"
+
 
 !theme plain
 top to bottom direction
 skinparam linetype ortho
 
 
-class MonsterhunterdeltaApplication {
-  + MonsterhunterdeltaApplication():
-  + main(String[]): void
-}
 
 
 package "monsterhunterdelta.persistence" #DDDDDD {

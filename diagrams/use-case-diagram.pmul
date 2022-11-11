@@ -1,21 +1,21 @@
 @startuml
 'left to right direction
+title use case diagram for monsterhunterdelta
 skinparam monsterhunterdelta rectangle
 actor "player 1"
 actor "player 2"
 rectangle monsterhunterdelta {
   "player 1" -- (start game)
-  "player 1" -- (see highscore)
+"player 1" -- (play game)
+
+
+  (play game) .> (kill monsters) : include
+  (kill monsters) .> (achieve highscore) : include
+  (achieve highscore) .> (save highscore) : include
+  (play game) -- "player 2"
+    "player 1" -- (see highscore)
     "player 1" -- (see credits)
     "player 1" -- (see controls)
 
-  (start game) .> (kill monsters) : include
-  (kill monsters) .> (achieve highscore) : include
-  (achieve highscore) .> (save highscore) : include
-  (save highscore) <. (see highscore) : extends
-      (start game) -- "player 2"
-      (see highscore) -- "player 2"
-      (see credits) -- "player 2"
-        (see controls) -- "player 2"
 }
 @enduml

@@ -1,4 +1,6 @@
 @startuml
+title class diagram for monsterhunterdelta.view
+
 
 !theme plain
 top to bottom direction
@@ -19,7 +21,7 @@ class Application {
    hostServices: HostServices
 }
 
-package "View Layer" #DDDDDD {
+package "monsterhunterdelta.view" #DDDDDD {
 class Credits {
   + Credits():
   + start(Stage): void
