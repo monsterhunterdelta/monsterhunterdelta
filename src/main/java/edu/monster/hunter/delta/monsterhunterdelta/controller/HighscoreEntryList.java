@@ -153,9 +153,9 @@ public class HighscoreEntryList {
             for (int i = 0; i < jsonObject.size(); i++) {
                 JSONObject value = (JSONObject) jsonObject.get(i);
 
-                long l = (long) value.get("score");
+                long l = (long) value.get("highScore");
                 int inty = (int) l;
-                HighscoreImpl highscore = new HighscoreImpl((String) value.get("name"), inty);
+                HighscoreImpl highscore = new HighscoreImpl((String) value.get("username"), inty);
                 highscores.add(highscore);
             }
             System.out.println("Highscores: " + highscores);

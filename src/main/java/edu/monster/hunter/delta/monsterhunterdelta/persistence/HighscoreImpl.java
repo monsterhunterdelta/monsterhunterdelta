@@ -89,8 +89,9 @@ public class HighscoreImpl implements Highscore {
         try {
             URL url = new URL("https://1672a66b-715e-4762-8d85-9f941b2c0ee7.mock.pstmn.io");
             Map<String, Object> params = new LinkedHashMap<>();
-            params.put("name", "Freddie the Fish");
-            params.put("score", 9);
+
+            params.put("username", this.getName());
+            params.put("highScore", this.score);
 
             StringBuilder postData = new StringBuilder();
             for (Map.Entry<String, Object> param : params.entrySet()) {
