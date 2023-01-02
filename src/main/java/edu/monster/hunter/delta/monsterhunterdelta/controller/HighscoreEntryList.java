@@ -15,7 +15,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 
-// create a class that is a list of HighscoreEntrys
+/* This a class is used to create a list of HighscoreEntrys
+ * by loading the data from a file or a server.
+ *
+ */
+
 public class HighscoreEntryList {
     // create a list of HighscoreEntrys
     private HighscoreEntry[] highscoreEntryList;
@@ -25,6 +29,9 @@ public class HighscoreEntryList {
         this.highscoreEntryList = highscoreEntryList;
     }
 
+    /*
+     * This methods sorts an array of HighscoreEntrys by their score.
+     */
     static ArrayList<Object> sortHighscores(ArrayList<Object> highscores) {
         highscores.sort(new Comparator<Object>() {
 
@@ -32,9 +39,6 @@ public class HighscoreEntryList {
                 return ((HighscoreImpl) o1).getScore().compareTo(((HighscoreImpl) o2).getScore());
             }
         });
-
-        // highscores.sort((o1, o2) -> ((HighscoreImpl) o1).getScore().compareTo(((HighscoreImpl) o2).getScore()));
-        //             highscores.sort(Comparator.comparing(HighscoreImpl::getScore));
         return highscores;
     }
 
@@ -53,7 +57,7 @@ public class HighscoreEntryList {
         // load the highscores from the file
         // add them to the list
         // ArrayList<Object> highscores = loadHighscoreFromFile();
-        //
+
 
         ArrayList<Object> highscores = loadHighScoresFromServer();
 
@@ -68,26 +72,20 @@ public class HighscoreEntryList {
 
     }
 
+    // read an array of HighscoreImpl from file (deserialization)
     public ArrayList<Object> loadHighscoreFromFile() {
-        // read an array of HighscoreImpl from file (deserialization)
 
 
         try {
             FileInputStream fis = new FileInputStream("highscore3.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
             ArrayList<Object> highscores = (ArrayList<Object>) ois.readObject();
-            for (Object highscore : highscores) {
-                System.out.println(highscore);
-            }
+
             ois.close();
 
 
             // Sort highscores
             sortHighscores(highscores);
-            System.out.println("Sorted highscores: " + highscores);
-
-            // set highscoreEntryList to the sorted highscores
-
 
             return highscores;
 
@@ -100,18 +98,14 @@ public class HighscoreEntryList {
         return null;
     }
 
-
+    /* This method loads the highscores from a server.
+     * It uses the HTTP protocol to send a GET request to the server.
+     * The server then sends a JSON file with the highscores.
+     * The method then parses the JSON file and creates a list of HighscoreImpl.
+     * The list is then returned.
+     */
     public ArrayList<Object> loadHighScoresFromServer() {
-        // TODO Auto-generated method stub
-        // so funktioniert die Kommunikation zum Server:
-        // Get request an den Server
-        // Da kommt ein sortiertes Json-Object zurück
-        // Dieses Json-Object sieht so aus:
-        // Scores= [ {name: "Basti", score: 100}, {name: "Basti", score: 100}, {name: "Basti", score: 100}
-        // Json-Object wird in ein Java-Object umgewandelt
-        // Java-Object wird in eine Liste von HighscoreImpl umgewandelt
         ArrayList<Object> highscores = new ArrayList<>();
-
         try {
             // get request to server
             String url = "https://d703b332-7f63-4846-b95f-1e3a0a7e7fd7.mock.pstmn.io";
@@ -119,7 +113,7 @@ public class HighscoreEntryList {
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             // optional default is GET
             con.setRequestMethod("GET");
-            //add request header
+            // add request header
             con.setRequestProperty("User-Agent", "Mozilla/5.0");
             int responseCode = con.getResponseCode();
             System.out.println("\nSending 'GET' request to URL : " + url);
@@ -133,21 +127,13 @@ public class HighscoreEntryList {
             }
             in.close();
 
-            //print in String
-            System.out.println(response);
+
             String stringy = response.toString();
 
             // convert String to JSONObject
             JSONParser parser = new JSONParser();
-
             JSONArray jsonObject = (JSONArray) parser.parse(stringy);
 
-            // Object test = parser.parse(new FileReader(System.getProperty("user.dir") + "/src/main/resources/edu/monster/hunter/delta/monsterhunterdelta/server.json"));
-            // JSONArray jsonObject = (JSONArray) test;
-
-            //Read JSON response and print
-            System.out.println("result after Reading JSON Response");
-            System.out.println("origin- " + jsonObject);
 
             // for every element in json array create a new highscoreImpl and add it to the list of highscores
             for (int i = 0; i < jsonObject.size(); i++) {
@@ -158,7 +144,6 @@ public class HighscoreEntryList {
                 HighscoreImpl highscore = new HighscoreImpl((String) value.get("username"), inty);
                 highscores.add(highscore);
             }
-            System.out.println("Highscores: " + highscores);
             return highscores;
 
         } catch (ProtocolException ex) {
@@ -166,11 +151,6 @@ public class HighscoreEntryList {
         } catch (IOException | ParseException ex) {
             throw new RuntimeException(ex);
         }
-        // get response from server
-        // convert response to Java-Object
-        // convert Java-Object to List of HighscoreImpl
-        // sort List of HighscoreImpl
-        // return List of HighscoreImpl
 
 
     }

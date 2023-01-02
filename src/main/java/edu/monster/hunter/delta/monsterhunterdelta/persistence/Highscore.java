@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author quirin
  * This is the interface for the Highscore. It gets and sets the
- * score of a player.
+ * score of a player. It also saves the highscore to a file or a server.
  */
 public interface Highscore extends Serializable {
     /**
@@ -14,10 +14,6 @@ public interface Highscore extends Serializable {
      * @param name  The name of the player.
      * @param score The score of the player.
      */
-    /**
-     * This method should save someone's highscore to a file.
-     */
-    void saveHighscoreToFile();
 
 
     /**
@@ -30,6 +26,14 @@ public interface Highscore extends Serializable {
 
     String getName();
 
+    /**
+     * This method should save someone's highscore to a file.
+     */
+    void saveHighscoreToFile();
+
+    /**
+     * This method should save someone's highscore to a server.
+     */
     void saveHighScoreToServer();
 
 

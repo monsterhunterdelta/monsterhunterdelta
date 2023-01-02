@@ -11,6 +11,8 @@ import java.util.Map;
 /**
  * @author quirin
  * TODO als Singleton implementieren
+ * This is the class for the Highscore. It sets the
+ * score of a player. It also saves the highscore to a file or a server.
  */
 
 public class HighscoreImpl implements Highscore {
@@ -18,12 +20,10 @@ public class HighscoreImpl implements Highscore {
     private final String name;
     private final Integer score;
 
-
     public HighscoreImpl(String name, int score) {
         this.name = name;
         this.score = score;
     }
-
 
     @Override
     public String getName() {
@@ -35,10 +35,9 @@ public class HighscoreImpl implements Highscore {
         return score;
     }
 
-
     @Override
     public void saveHighscoreToFile() {
-        // write an array of high scores to file (serialization)
+        // write an array of high scores to file with serialization
         ArrayList<Object> highscores = new ArrayList<Object>();
         try {
             FileInputStream fis = new FileInputStream("highscore3.txt");
