@@ -52,9 +52,9 @@ public class Options extends Application {
 
         grid.add(okBtn, 0, 4);
         Scene scene = new Scene(grid, 1024, 740);
-        scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
+        scene.getStylesheets().add(Options.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
         scene.getStylesheets().add(
-                Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/Options.css").toExternalForm());
+                Options.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/Options.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }

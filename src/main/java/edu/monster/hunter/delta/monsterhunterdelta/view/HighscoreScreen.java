@@ -1,6 +1,7 @@
 package edu.monster.hunter.delta.monsterhunterdelta.view;
 
 import edu.monster.hunter.delta.monsterhunterdelta.controller.HighscoreEntry;
+import edu.monster.hunter.delta.monsterhunterdelta.controller.HighscoreEntryList;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +23,7 @@ public class HighscoreScreen extends Application {
     @Override
     public void start(final Stage primaryStage) {
 
-        primaryStage.setTitle("Monster Hunter Arcade - Highscore");
+        primaryStage.setTitle("Monster Hunter Delta - Highscore");
         primaryStage.setResizable(false);
 
         GridPane grid = new GridPane();
@@ -33,16 +34,18 @@ public class HighscoreScreen extends Application {
 
         final Label highscoreTitle = new Label("Highscore");
 
-        String dummyname = "Horst";
-        int dummypoints = 9000;
-        String dummyname2 = "Klaus";
-        int dummypoints2 = 8300;
 
+        HighscoreEntryList highscoreEntryList = new HighscoreEntryList(new HighscoreEntry[50]);
+        highscoreEntryList.loadHighscores();
 
-        final ObservableList<HighscoreEntry> dummyData = FXCollections.observableArrayList(
-                new HighscoreEntry(dummyname, dummypoints),
-                new HighscoreEntry(dummyname2, dummypoints2)
-        );
+        // for every HighscoreEntry in the list, add it to an ObservableList
+        ObservableList<HighscoreEntry> highscoreEntryObservableList = FXCollections.observableArrayList();
+        for (int i = 0; i < highscoreEntryList.getHighscoreEntryList().length; i++) {
+            if (highscoreEntryList.getHighscoreEntryList()[i] != null) {
+                highscoreEntryObservableList.add(highscoreEntryList.getHighscoreEntryList()[i]);
+            }
+        }
+
 
         TableView highscoreTable = new TableView();
 
@@ -60,7 +63,7 @@ public class HighscoreScreen extends Application {
         scoreCol.setSortable(false);
         scoreCol.setResizable(false);
 
-        highscoreTable.setItems(dummyData);
+        highscoreTable.setItems(highscoreEntryObservableList);
         highscoreTable.getColumns().addAll(nameCol, scoreCol);
 
         Button okBtn = new Button();
@@ -82,9 +85,9 @@ public class HighscoreScreen extends Application {
         StackPane root = new StackPane();
         root.getChildren().add(grid);
         Scene scene = new Scene(root, 1024, 740);
-        scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
+        scene.getStylesheets().add(HighscoreScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
         scene.getStylesheets().add(
-                Credits.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/HighscoreScreen.css").toExternalForm());
+                HighscoreScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/HighscoreScreen.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
 

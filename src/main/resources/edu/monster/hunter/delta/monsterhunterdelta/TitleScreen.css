@@ -1,3 +1,4 @@
 #titleGrid {
-    -fx-background-image: url("/edu/monster/hunter/delta/monsterhunterdelta/wizardofwar_GAB.png");
+    -fx-background-image: url("wizardofwor_GAB.png");
+    -fx-background-size: 100% 100%;
 }

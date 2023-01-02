@@ -184,7 +184,7 @@ public class PlayFieldScreen extends Application {
         timeline.play();
 
         Scene scene = new Scene(root, 1024, 740);
-        scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
+        scene.getStylesheets().add(PlayFieldScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
         scene.setOnKeyPressed(keyboard);
 
         scene.setFill(Color.BLACK);

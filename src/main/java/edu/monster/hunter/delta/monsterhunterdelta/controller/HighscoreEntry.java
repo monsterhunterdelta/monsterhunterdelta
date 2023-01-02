@@ -26,6 +26,7 @@ public class HighscoreEntry {
         highscore.saveHighscoreToFile();
     }
 
+
     public int getScore() {
 
         return score.get();

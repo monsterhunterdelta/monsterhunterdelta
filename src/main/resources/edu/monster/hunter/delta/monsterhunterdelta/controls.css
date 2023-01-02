@@ -1,24 +1,41 @@
-.button{
-	-fx-text-fill: white;
-	-fx-font-family: "Monospace";
-	-fx-font-weight: bold;
-	-fx-background-color: linear-gradient(black,blue );
+
+.label {
+    -fx-text-fill: white;
+
+    -fx-font-size: 14;
+    -fx-border-color: none;
+    -fx-color-label-visible: true;
+
+    -fx-background-color: black;
+    -fx-label-padding: 5 10 5 10;
+
 }
 
-.button:hover{
-	-fx-background-color: linear-gradient(grey,lightblue);
+
+.button {
+    -fx-text-fill: white;
+    -fx-font-family: "Monospace";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(black, blue);
 }
 
-.label{
-	-fx-text-fill:black;
-	-fx-font-weight: bold;
-	-fx-font-size: 16;
-	-fx-border-color: black;
-	-fx-background-color: white;
-	-fx-border-radius: 5;
-	-fx-background-radius: 5;
+.button:hover {
+    -fx-background-color: linear-gradient(grey, lightblue);
 }
 
-.label:hover{
-	-fx-text-fill:black;
+.label-credits-title {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+
+
+}
+
+.table-view {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-border-color: none;
+    -fx-color-label-visible: true;
+    -fx-background-color: black;
+    -fx-label-padding: 5 10 5 10;
 }

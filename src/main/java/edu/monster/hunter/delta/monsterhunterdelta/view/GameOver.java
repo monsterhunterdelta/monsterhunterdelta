@@ -32,7 +32,7 @@ public class GameOver extends Application {
         pane.setId("gameOverPane");
         pane.getChildren().add(button);
         Scene scene = new Scene(pane, 1024, 740);
-        scene.getStylesheets().add(TitleScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
+        scene.getStylesheets().add(GameOver.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
         scene.getStylesheets().add(
                 GameOver.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/GameOver.css").toExternalForm());
         primaryStage.setScene(scene);
