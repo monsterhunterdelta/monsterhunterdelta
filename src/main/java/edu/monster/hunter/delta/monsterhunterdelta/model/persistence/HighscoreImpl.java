@@ -80,7 +80,7 @@ public class HighscoreImpl implements Highscore {
 
 
         try {
-            URL url = new URL("http://localhost:8080/highscore");
+            URL url = new URL("http://testjava-env.eba-k2ru42fh.eu-central-1.elasticbeanstalk.com/highscore");
             Map<String, Object> params = new LinkedHashMap<>();
 
             params.put("name", this.getName());

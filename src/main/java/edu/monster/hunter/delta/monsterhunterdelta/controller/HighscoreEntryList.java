@@ -108,7 +108,7 @@ public class HighscoreEntryList {
         ArrayList<Object> highscores = new ArrayList<>();
         try {
             // get request to server
-            String url = "http://localhost:8080/highscorelist";
+            String url = "http://testjava-env.eba-k2ru42fh.eu-central-1.elasticbeanstalk.com/highscorelist";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             // optional default is GET

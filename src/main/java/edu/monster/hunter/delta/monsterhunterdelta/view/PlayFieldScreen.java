@@ -1,12 +1,14 @@
 package edu.monster.hunter.delta.monsterhunterdelta.view;
 
 import edu.monster.hunter.delta.monsterhunterdelta.controller.HighscoreEntry;
-import edu.monster.hunter.delta.monsterhunterdelta.controller.Keyboard;
 import edu.monster.hunter.delta.monsterhunterdelta.model.*;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -15,6 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -38,6 +42,15 @@ public class PlayFieldScreen extends Application {
     /**
      * Mit dieser Wahrscheinlichkeit wird ein mal pro Sekunde geschossen.
      */
+    private static final Image IMAGE_UP = new Image(
+            Bullet.class.getResourceAsStream("/edu/monster/hunter/delta/monsterhunterdelta/sprites.png"));
+    private static final Image IMAGE_DOWN = new Image(
+            Bullet.class.getResourceAsStream("/edu/monster/hunter/delta/monsterhunterdelta/sprites.png"));
+    private static final Image IMAGE_LEFT = new Image(
+            Bullet.class.getResourceAsStream("/edu/monster/hunter/delta/monsterhunterdelta/sprites.png"));
+    private static final Image IMAGE_RIGHT = new Image(
+            Bullet.class.getResourceAsStream("/edu/monster/hunter/delta/monsterhunterdelta/sprites.png"));
+
     private static final double SHOOT_LIKELIHOOD = 0.7;
     private final Timeline timeline = new Timeline();
     private final List<Enemy> enemyList = new ArrayList<Enemy>();
@@ -70,6 +83,7 @@ public class PlayFieldScreen extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("Monster Hunter Delta");
         primaryStage.setResizable(false);
+        ObservableSet<KeyCode> downKeys = FXCollections.observableSet();
 
 
         maze = new Maze("level1");
@@ -97,7 +111,7 @@ public class PlayFieldScreen extends Application {
         lives2.setLayoutY(40);
         lives2.setLayoutX(950);
 
-        Keyboard keyboard = new Keyboard(player1, player2, this);
+        //Keyboard keyboard = new Keyboard(player1, player2, this);
 
         root.getChildren().add(player1.getGroup());
         root.getChildren().add(player2.getGroup());
@@ -192,8 +206,103 @@ public class PlayFieldScreen extends Application {
 
         Scene scene = new Scene(root, 1024, 740);
         scene.getStylesheets().add(PlayFieldScreen.class.getResource("/edu/monster/hunter/delta/monsterhunterdelta/controls.css").toExternalForm());
-        scene.setOnKeyPressed(keyboard);
 
+        /** neuer Code zu den Steuerungsinputs, macht Keyboard-Klasse ü erflüssig, kann man dorthin auslagern, ist mit Lambda aber schlanker**/
+
+        scene.setOnKeyPressed(evt->{
+            downKeys.add(evt.getCode());
+        });
+
+        scene.setOnKeyReleased(evt->{
+            downKeys.remove(evt.getCode());
+        });
+        Timeline timer = new Timeline(new KeyFrame(
+                javafx.util.Duration.millis(16), ae -> {
+            downKeys.stream().parallel().forEach(kc -> {
+                Platform.runLater(() -> {
+                    switch(kc){
+                        case W:
+                            if (player1.isMovable()) {
+                                player1.setDirection(Direction.UP);
+                                player1.move();
+                                player1.getImageView().setImage(IMAGE_UP);
+                            }
+                            break;
+                        case S:
+                            if (player1.isMovable()) {
+                                player1.setDirection(Direction.DOWN);
+                                player1.move();
+                                player1.getImageView().setImage(IMAGE_DOWN);
+                            }
+                            break;
+                        case A:
+                            if (player1.isMovable()) {
+                                player1.setDirection(Direction.LEFT);
+                                player1.move();
+                                player1.getImageView().setImage(IMAGE_LEFT);
+                            }
+                            break;
+                        case D:
+                            if (player1.isMovable()) {
+                                player1.setDirection(Direction.RIGHT);
+                                player1.move();
+                                player1.getImageView().setImage(IMAGE_RIGHT);
+                            }
+                            break;
+                        case SPACE:
+                            if (player1.isMovable()) {
+                                player1.shoot();
+                            }
+                            break;
+                        case UP:
+                            if (player2.isMovable()) {
+                                player2.setDirection(Direction.UP);
+                                player2.move();
+                                player2.getImageView().setImage(IMAGE_UP);
+                            }
+                            break;
+                        case DOWN:
+                            if (player2.isMovable()) {
+                                player2.setDirection(Direction.DOWN);
+                                player2.move();
+                                player2.getImageView().setImage(IMAGE_DOWN);
+                            }
+                            break;
+                        case LEFT:
+                            if (player2.isMovable()) {
+                                player2.setDirection(Direction.LEFT);
+                                player2.move();
+                                player2.getImageView().setImage(IMAGE_LEFT);
+                            }
+                            break;
+                        case RIGHT:
+                            if (player2.isMovable()) {
+                                player2.setDirection(Direction.RIGHT);
+                                player2.move();
+                                player2.getImageView().setImage(IMAGE_RIGHT);
+                            }
+                            break;
+                        case L:
+                            if (player2.isMovable()) {
+                                player2.shoot();
+                            }
+                            break;
+                        case P:
+                            pauseGame();
+                            player1.toggleMoveable();
+                            break;
+                        case M:
+                            muteMusic();
+                        default:
+                            break;
+
+                    }
+                });
+            });
+        }));
+        timer.setCycleCount(Animation.INDEFINITE);
+        timer.play();
+        /**Ende neuer Input Code**/
         scene.setFill(Color.BLACK);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -212,7 +321,7 @@ public class PlayFieldScreen extends Application {
 
     }
 
-    
+
     private boolean checkThatPlayerIsStillAlive() {
         if (!player1.isAlive() || !player2.isAlive()) {
             gameWasPaused = true;
