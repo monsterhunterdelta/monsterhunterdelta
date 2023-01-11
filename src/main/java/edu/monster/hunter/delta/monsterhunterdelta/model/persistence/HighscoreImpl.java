@@ -1,4 +1,4 @@
-package edu.monster.hunter.delta.monsterhunterdelta.persistence;
+package edu.monster.hunter.delta.monsterhunterdelta.model.persistence;
 
 import java.io.*;
 import java.net.*;
@@ -77,20 +77,14 @@ public class HighscoreImpl implements Highscore {
 
     @Override
     public void saveHighScoreToServer() {
-        // TODO Auto-generated method stub
-        // So funktioniert die Kommunikation zum Server:
-        // New User mit zwei Variablen (name und id) auf dem Server erstellen
-        // User wird in die Datenbank geschrieben
-        // String und int werden an den Server geschickt
-        // Server schreibt in die Datenbank
-        // Post request an den Server
+
 
         try {
-            URL url = new URL("https://1672a66b-715e-4762-8d85-9f941b2c0ee7.mock.pstmn.io");
+            URL url = new URL("http://localhost:8080/highscore");
             Map<String, Object> params = new LinkedHashMap<>();
 
-            params.put("username", this.getName());
-            params.put("highScore", this.score);
+            params.put("name", this.getName());
+            params.put("score", this.score);
 
             StringBuilder postData = new StringBuilder();
             for (Map.Entry<String, Object> param : params.entrySet()) {

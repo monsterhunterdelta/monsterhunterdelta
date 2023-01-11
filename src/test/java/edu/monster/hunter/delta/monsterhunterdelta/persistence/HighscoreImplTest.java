@@ -2,6 +2,7 @@ package edu.monster.hunter.delta.monsterhunterdelta.persistence;
 
 import edu.monster.hunter.delta.monsterhunterdelta.controller.HighscoreEntry;
 import edu.monster.hunter.delta.monsterhunterdelta.controller.HighscoreEntryList;
+import edu.monster.hunter.delta.monsterhunterdelta.model.persistence.HighscoreImpl;
 import org.junit.jupiter.api.Test;
 
 import java.net.MalformedURLException;
@@ -22,7 +23,7 @@ class HighscoreImplTest {
 
     @Test
     void saveHighsoreToServer() {
-        HighscoreImpl highscore = new HighscoreImpl("test2", 1);
+        HighscoreImpl highscore = new HighscoreImpl("Maryna", 100);
         highscore.saveHighScoreToServer();
     }
 
@@ -40,6 +41,7 @@ class HighscoreImplTest {
     void loadHighscoreFromServer() throws MalformedURLException {
         HighscoreEntryList highscoreEntryList = new HighscoreEntryList(new HighscoreEntry[50]);
         highscoreEntryList.loadHighscores();
+        // print HighscoreEntryList
 
     }
 

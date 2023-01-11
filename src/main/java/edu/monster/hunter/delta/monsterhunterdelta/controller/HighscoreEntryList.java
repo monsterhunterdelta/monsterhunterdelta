@@ -1,7 +1,7 @@
 package edu.monster.hunter.delta.monsterhunterdelta.controller;
 
 
-import edu.monster.hunter.delta.monsterhunterdelta.persistence.HighscoreImpl;
+import edu.monster.hunter.delta.monsterhunterdelta.model.persistence.HighscoreImpl;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -108,7 +108,7 @@ public class HighscoreEntryList {
         ArrayList<Object> highscores = new ArrayList<>();
         try {
             // get request to server
-            String url = "https://d703b332-7f63-4846-b95f-1e3a0a7e7fd7.mock.pstmn.io";
+            String url = "http://localhost:8080/highscorelist";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             // optional default is GET

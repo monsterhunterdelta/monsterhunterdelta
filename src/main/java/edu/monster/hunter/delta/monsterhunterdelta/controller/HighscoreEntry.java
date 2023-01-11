@@ -1,6 +1,6 @@
 package edu.monster.hunter.delta.monsterhunterdelta.controller;
 
-import edu.monster.hunter.delta.monsterhunterdelta.persistence.HighscoreImpl;
+import edu.monster.hunter.delta.monsterhunterdelta.model.persistence.HighscoreImpl;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 

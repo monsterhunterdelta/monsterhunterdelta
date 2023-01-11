@@ -1,4 +1,4 @@
-package edu.monster.hunter.delta.monsterhunterdelta.persistence;
+package edu.monster.hunter.delta.monsterhunterdelta.model.persistence;
 
 import java.io.Serializable;
 

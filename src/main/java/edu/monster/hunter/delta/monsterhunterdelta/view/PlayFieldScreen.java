@@ -143,18 +143,23 @@ public class PlayFieldScreen extends Application {
                         player1.getRectangle().setY(START_Y_PLAYER_1);
                         player1.getImageView().setX(START_X_PLAYER_1);
                         player1.getImageView().setY(START_Y_PLAYER_1);
-                        player1.setLives(player1.getLives() - 1);
-                        lives1.setText("Leben: " + player1.getLives());
+                        if (!player1.isAlive()) {
+                            player1.setLives(player1.getLives() - 1);
+                            lives1.setText("Leben: " + player1.getLives());
+                        }
+
                         player1.setInvincible(true);
                         player1.setAlive(true);
                         player2.getRectangle().setX(START_X_PLAYER_2);
                         player2.getRectangle().setY(START_Y_PLAYER_2);
                         player2.getImageView().setX(START_X_PLAYER_2);
                         player2.getImageView().setY(START_Y_PLAYER_2);
-                        // TODO Hier liegt das Problem mit dem gemeinsamen Lebensabzug
-                        // else müsste mit einem Else if prüfen welcher Spieler noch am Leben ist
-                        player2.setLives(player2.getLives() - 1);
-                        lives2.setText("Leben: " + player2.getLives());
+
+                        if (!player2.isAlive()) {
+                            player2.setLives(player2.getLives() - 1);
+                            lives2.setText("Leben: " + player2.getLives());
+                        }
+
                         player2.setInvincible(true);
                         player2.setAlive(true);
                         timeline.play();
@@ -207,9 +212,7 @@ public class PlayFieldScreen extends Application {
 
     }
 
-    // TODO das muss noch überarbeitet werden
-    // es muss entweder oder gecheckt werden, wer noch am leben ist
-    // damit kein gemeinsamer Lebensabzug stattfindet
+    
     private boolean checkThatPlayerIsStillAlive() {
         if (!player1.isAlive() || !player2.isAlive()) {
             gameWasPaused = true;
@@ -225,18 +228,32 @@ public class PlayFieldScreen extends Application {
             mediaPlayer.stop();
         }
         timeline.stop();
-        // TODO check which player died in the end and add his score to the highscore list
-        int finalScore = player1.getScore();
-        String playerName = "Spieler 1";
-        Label playersPoints = new Label("Du hast " + finalScore + " Punkte!");
-        playersPoints.setTextFill(Color.WHITESMOKE);
+
+        // The Player with the most point can enter his name
+
+        int player1Score = player1.getScore();
+        int player2Score = player2.getScore();
+        String playerName;
+        int finalScore;
+
+        if (player1Score >= player2Score) {
+            finalScore = player1Score;
+            playerName = "Spieler 1";
+        } else {
+            finalScore = player2Score;
+            playerName = "Spieler 2";
+        }
+        Label playerPoints = new Label("Du hast " + finalScore + " Punkte!");
+
+
+        playerPoints.setTextFill(Color.WHITESMOKE);
         Label enterHighscore = new Label("Trage deinen Namen ein! ");
         enterHighscore.setTextFill(Color.WHITESMOKE);
         TextField name = new TextField(playerName);
         Button ok = new Button("Ok");
         VBox highscorePopup = new VBox();
         highscorePopup.setAlignment(Pos.CENTER);
-        highscorePopup.getChildren().add(playersPoints);
+        highscorePopup.getChildren().add(playerPoints);
         highscorePopup.getChildren().add(enterHighscore);
         HBox highscoreBox = new HBox();
         highscoreBox.getChildren().add(name);
@@ -251,7 +268,7 @@ public class PlayFieldScreen extends Application {
             @Override
             public void handle(ActionEvent arg0) {
                 // Create a new highscore object and save it to the highscore list
-                entry = new HighscoreEntry(name.getText(), finalScore);
+                entry = new HighscoreEntry(name.getText(), player1Score);
                 entry.save();
                 gameOver();
             }
