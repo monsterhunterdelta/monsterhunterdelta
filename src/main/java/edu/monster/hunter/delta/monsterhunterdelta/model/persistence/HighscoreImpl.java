@@ -10,7 +10,6 @@ import java.util.Map;
 
 /**
  * @author quirin
- * TODO als Singleton implementieren
  * This is the class for the Highscore. It sets the
  * score of a player. It also saves the highscore to a file or a server.
  */

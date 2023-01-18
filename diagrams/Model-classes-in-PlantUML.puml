@@ -1,0 +1,165 @@
+@startuml
+title "class diagram for monsterhunterdelta"
+'Anmerkung: ECS -> Noch ergänzen, Anforderungne ergänzen
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+
+
+
+
+
+package "monsterhunterdelta.model" #DDDDDD {
+
+
+
+class Bullet {
+  + Bullet(Maze, Direction, double, double, ShootingFigure):
+  - targets: List<Figure>
+  - active: boolean
+  + move(): void
+  + onCollisionWithMaze(): void
+  - checkForCollisionWithTargets(): Figure?
+   targets: List<Figure>
+   active: boolean
+}
+interface Callback << interface >> {
+  + call(): void
+}
+class CollisionDetector {
+  + CollisionDetector():
+  + isCollide(Rectangle, Rectangle): boolean
+  + isCollide(List<Rectangle>, Rectangle): boolean
+}
+
+enum Direction << enumeration >> {
+  + Direction():
+  + valueOf(String): Direction
+  + values(): Direction[]
+}
+class Enemy {
+  + Enemy(Maze, TypeOfFigure, double, double):
+  + onCollisionWithMaze(): void
+  + bulletHasHitATarget(Figure): void
+  + move(): void
+  - changeToRandomDirection(): void
+   name: String
+   imageByMonster: TypeOfFigure
+}
+class Figure {
+  + Figure(Maze, TypeOfFigure, double, double):
+  - imageView: ImageView
+  - direction: Direction
+  - maze: Maze
+  - alive: boolean
+  - group: Group
+  - type: TypeOfFigure
+  - rectangle: Rectangle
+  - distance: double
+  + willCollideWithMazeInFuture(): boolean
+  + onCollisionWithMaze(): void
+  + move(): void
+   alive: boolean
+   maze: Maze
+   direction: Direction
+   rectangle: Rectangle
+   futurePosition: Rectangle
+   imageView: ImageView
+   type: TypeOfFigure
+   distance: double
+   group: Group
+   x: double
+   y: double
+}
+
+
+
+class HighscoreEntry {
+  + HighscoreEntry(String, int):
+  - name: SimpleStringProperty
+  - score: SimpleIntegerProperty
+   name: String
+   score: int
+}
+
+
+
+class Maze {
+  + Maze(String):
+  - walls: List<Rectangle>
+  + addWalls(List<Rectangle>): void
+  - loadJSON(String): double[][]
+  - createMaze(String): void
+   walls: List<Rectangle>
+}
+
+
+class Player {
+  + Player(Maze, double, double):
+  - invincible: boolean
+  - score: int
+  - MAX_LIVES: int
+  - lives: int
+  + toggleMoveable(): void
+  + move(): void
+  - checkForCollisionWithEnemies(): Figure?
+  + bulletHasHitATarget(Figure): void
+  + onCollisionWithMaze(): void
+   alive: boolean
+   MAX_LIVES: int
+   lives: int
+   invincible: boolean
+   score: int
+   movable: boolean
+}
+interface ShootCallback << interface >> {
+  + shootBullet(Bullet): void
+}
+class ShootCallbackImpl {
+  + ShootCallbackImpl():
+  + shootBullet(Bullet): void
+}
+class ShootingFigure {
+  + ShootingFigure(Maze, TypeOfFigure, double, double):
+  - targets: List<Figure>
+  - shootCallback: ShootCallback
+  + bulletHasHitATarget(Figure): void
+  + bulletHasArrived(): void
+  + shoot(): void
+  + addTargets(Figure[]): void
+  + bulletHasHitTheMaze(): void
+   targets: List<Figure>
+   shootCallback: ShootCallback
+}
+
+enum TypeOfFigure << enumeration >> {
+  - TypeOfFigure(int):
+  - points: int
+  + values(): TypeOfFigure[]
+  + valueOf(String): TypeOfFigure
+   points: int
+}
+
+}
+
+
+Bullet                         -[#000082,plain]-^  Figure
+Bullet                        "1" *-[#595959,plain]-> "targets\n*" Figure
+Bullet                        "1" *-[#595959,plain]-> "shooter\n1" ShootingFigure
+Enemy                          -[#000082,plain]-^  ShootingFigure
+Figure                         -[#595959,dashed]->  CollisionDetector             : "«create»"
+Figure                        "1" *-[#595959,plain]-> "cd\n1" CollisionDetector
+Figure                        "1" *-[#595959,plain]-> "direction\n1" Direction
+Figure                        "1" *-[#595959,plain]-> "maze\n1" Maze
+Figure                        "1" *-[#595959,plain]-> "type\n1" TypeOfFigure
+Keyboard                      "1" *-[#595959,plain]-> "player1\n1" Player
+Player                         -[#000082,plain]-^  ShootingFigure
+ShootCallbackImpl              -[#008200,dashed]-^  ShootCallback
+ShootingFigure                 -[#595959,dashed]->  Bullet                        : "«create»"
+ShootingFigure                 -[#000082,plain]-^  Figure
+ShootingFigure                "1" *-[#595959,plain]-> "targets\n*" Figure
+ShootingFigure                "1" *-[#595959,plain]-> "shootCallback\n1" ShootCallback
+
+@enduml
